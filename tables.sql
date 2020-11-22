@@ -209,7 +209,7 @@ DROP TABLE IF EXISTS `ManagesItems`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ManagesItems` (
-  `roleID` int(10) NOT NULL,
+  `role_ID` int(10) NOT NULL,
   `type` char(100) NOT NULL,
   `vendor` char(100) NOT NULL,
   PRIMARY KEY (`roleId`,`type`,`vendor`),
@@ -273,7 +273,7 @@ DROP TABLE IF EXISTS `ManagesPeople`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ManagesPeople` (
-  `roleID` int(10) NOT NULL,
+  `role_ID` int(10) NOT NULL,
   `case_ID` char(7) NOT NULL,
   PRIMARY KEY (`roleId`,`case_ID`),
   KEY `ManagesPeople_case_ID_fk` (`case_ID`),
@@ -337,7 +337,7 @@ DROP TABLE IF EXISTS `Advise`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Advise` (
-  `roleID` int(10) NOT NULL,
+  `role_ID` int(10) NOT NULL,
   `case_ID` char(7) NOT NULL,
   PRIMARY KEY (`roleId`,`case_ID`),
   KEY `Advise_case_ID_fk` (`case_ID`),
