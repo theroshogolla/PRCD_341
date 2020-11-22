@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.19, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: hackathon_management
+-- Host: 127.0.0.1    Database: PRCD
 -- ------------------------------------------------------
 -- Server version	8.0.19-0ubuntu0.19.10.3
 
