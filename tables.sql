@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `Shifts`;
 CREATE TABLE `Shifts` (
   `date` date NOT NULL,
   `time` time NOT NULL,
-  `capacity` int(30) DEFAULT NULL,
+  `capacity` int DEFAULT NULL,
   PRIMARY KEY (`date`, 'time')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -384,7 +384,7 @@ CREATE TABLE `SignUp` (
 
 LOCK TABLES `SignUp` WRITE;
 /*!40000 ALTER TABLE `SignUp` DISABLE KEYS */;
-INSERT INTO `SignUp` VALUES (mmm345,'11/02/20','13:00'),
+INSERT INTO `SignUp` VALUES (mmm345,'2020/01/16','13:00'),
 /*!40000 ALTER TABLE `SignUp` ENABLE KEYS */;
 UNLOCK TABLES;
               
