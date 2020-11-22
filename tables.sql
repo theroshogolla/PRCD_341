@@ -144,7 +144,7 @@ CREATE TABLE `Inventory` (
 
 LOCK TABLES `Inventory` WRITE;
 /*!40000 ALTER TABLE `Inventory` DISABLE KEYS */;
-INSERT INTO `Inventory` VALUES ('Jeans','Levis', 10 )
+INSERT INTO `Inventory` VALUES (Tops,10,GreekLife),(Denims,15,Levis),(Sweatpants,31,ResCycle),(Jackets,5,NorthFace), (Sweaters,25,ResCycle), (Condoms,30,OhioGov), (Shoes,3,CCEL), (Cookware,4,SA&L), (Furniture ,8,Thwing), (Decorations,7,ReCylce), (Socks,40,Resilliency), (Menstural,23,Period@CWRU),(Leather,2,CoC),(Menstrual,6,DivaCup),(Tops,31,DicsoverCLE), (Denims,14,CalvinKlein), (Tops,12,ResCycle);
 /*!40000 ALTER TABLE ` Inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
