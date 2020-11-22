@@ -195,7 +195,7 @@ CREATE TABLE `Recipe` (
 
 LOCK TABLES `Recipe` WRITE;
 /*!40000 ALTER TABLE `Recipe` DISABLE KEYS */;
-INSERT INTO `Recipe` VALUES (100, 'ice cream', NULL )
+INSERT INTO `Recipe` VALUES (8,Pesto Pasta,makepasta.com),(12,Chocolate Cake,makecake.com),(17,Vanilla Ice Cream,iceice.com),(19,Mousse,ratatouille.com),(22,Chicken Wings,NULL),(23,Chicken Marinara,marinate.com),(29,Chicken Parmesan,mamashomecooking.com),(32,Seafood Rissotto,littleitaly.com);
 /*!40000 ALTER TABLE ` Recipe` ENABLE KEYS */;
 UNLOCK TABLES;
 
