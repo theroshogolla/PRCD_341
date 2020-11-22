@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `Steering_Committee`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Steering_Committee` (
   `role_ID` int(10) NOT NULL,
-  `role` char(30) DEFAULT NULL,
-  `name` char(30) DEFAULT NULL,
-  `cell` int(20) DEFAULT NULL,
-  `email` char(30) DEFAULT NULL,
-  `address` char(30) DEFAULT NULL,
+  `role` char(50) DEFAULT NULL,
+  `name` char(50) DEFAULT NULL,
+  `cell` int(10) DEFAULT NULL,
+  `email` char(50) DEFAULT NULL,
+  `address` char(100) DEFAULT NULL,
   PRIMARY KEY (`role_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `Shifts`;
 CREATE TABLE `Shifts` (
   `date` date NOT NULL,
   `time` time NOT NULL,
-  `capacity` char(30) DEFAULT NULL,
+  `capacity` int(30) DEFAULT NULL,
   PRIMARY KEY (`date`, 'time')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -76,12 +76,12 @@ DROP TABLE IF EXISTS `Volunteers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Volunteers` (
-  `case_ID` char NOT NULL,
+  `case_ID` char(7) NOT NULL,
   `hours` int DEFAULT NULL,
-  `name` char(30) DEFAULT NULL,
-  `cell` int(20) DEFAULT NULL,
-  `email` char(30) DEFAULT NULL,
-  `type` char(30) DEFAULT NULL,
+  `name` char(50) NOT NULL,
+  `cell` int(10) DEFAULT NULL,
+  `email` char(50) DEFAULT NULL,
+  `type` char(4) NOT NULL,
   PRIMARY KEY (`case_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -92,7 +92,7 @@ CREATE TABLE `Volunteers` (
 
 LOCK TABLES `Volunteers` WRITE;
 /*!40000 ALTER TABLE `Volunteers` DISABLE KEYS */;
-INSERT INTO `Volunteers` VALUES (mmm345, 5,'Madeline Myers', 2153444, NULL, NULL )
+INSERT INTO `Volunteers` VALUES (mmm345, NULL,'Madeline Myers', 2153444, NULL, 'FLEX' )
 /*!40000 ALTER TABLE ` Volunteers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,11 +104,11 @@ DROP TABLE IF EXISTS `Advisors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Advisors` (
-  `case_ID` char NOT NULL,
-  `name` char(30) DEFAULT NULL,
-  `email` char(20) DEFAULT NULL,
-  `office` char(30) DEFAULT NULL,
-  `speciality` char(30) DEFAULT NULL,
+  `case_ID` char(7) NOT NULL,
+  `name` char(50) NOT NULL,
+  `email` char(50) DEFAULT NULL,
+  `office` char(100) DEFAULT NULL,
+  `speciality` char(50) DEFAULT NULL,
   PRIMARY KEY (`case_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -159,7 +159,7 @@ CREATE TABLE `Food` (
   `category` char(100) NOT NULL,
   `vendor` char(100) NOT NULL,
   `qty` int DEFAULT NULL,
-  'accomodations' char(50) DEFAULT NULL,
+  'accomodations' char(100) DEFAULT NULL,
   PRIMARY KEY (`category`, 'vendor')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -183,8 +183,8 @@ DROP TABLE IF EXISTS `Recipe`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Recipe` (
   `recipe_ID` int NOT NULL,
-  `name` char(100) DEFAULT NULL,
-  `weblink` char(500) DEFAULT NULL,
+  `name` char(100) NOT NULL,
+  `weblink` char(200) DEFAULT NULL,
   PRIMARY KEY (`recipe_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -195,7 +195,7 @@ CREATE TABLE `Recipe` (
 
 LOCK TABLES `Recipe` WRITE;
 /*!40000 ALTER TABLE `Recipe` DISABLE KEYS */;
-INSERT INTO `Recipe` VALUES (100, NULL, NULL )
+INSERT INTO `Recipe` VALUES (100, 'ice cream', NULL )
 /*!40000 ALTER TABLE ` Recipe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,7 +274,7 @@ DROP TABLE IF EXISTS `ManagesPeople`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ManagesPeople` (
   `roleID` int(10) NOT NULL,
-  `case_ID` char NOT NULL,
+  `case_ID` char(7) NOT NULL,
   PRIMARY KEY (`roleId`,`case_ID`),
   KEY `ManagesPeople_case_ID_fk` (`case_ID`),
   CONSTRAINT `ManagesPeople_roleID_fk` FOREIGN KEY (`roleID`) REFERENCES `Steering_Committee` (`roleID`),
@@ -338,7 +338,7 @@ DROP TABLE IF EXISTS `Advise`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Advise` (
   `roleID` int(10) NOT NULL,
-  `case_ID` char NOT NULL,
+  `case_ID` char(7) NOT NULL,
   PRIMARY KEY (`roleId`,`case_ID`),
   KEY `Advise_case_ID_fk` (`case_ID`),
   CONSTRAINT `Advise_roleID_fk` FOREIGN KEY (`roleID`) REFERENCES `Steering_Committee` (`roleID`),
@@ -366,7 +366,7 @@ DROP TABLE IF EXISTS `SignUp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `SignUp` (
-  `case_ID` char NOT NULL,
+  `case_ID` char(7) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
   PRIMARY KEY (`case_ID`,`date`,`time`),
