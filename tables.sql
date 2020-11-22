@@ -372,9 +372,9 @@ CREATE TABLE `SignUp` (
   PRIMARY KEY (`case_ID`,`date`,`time`),
   KEY `SignUp_date_fk` (`date`),
   KEY `SignUp_time_fk` (`time`),
-  CONSTRAINT `SignUp_case_ID_fk` FOREIGN KEY (`case_ID`) REFERENCES `Volunteer` (`case_ID`),
-  CONSTRAINT `SignUp_date_fk` FOREIGN KEY (`date`) REFERENCES `Shift` (`date`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `SignUp_time_fk` FOREIGN KEY (`time`) REFERENCES `Shift` (`time`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `SignUp_case_ID_fk` FOREIGN KEY (`case_ID`) REFERENCES `Volunteers` (`case_ID`),
+  CONSTRAINT `SignUp_date_fk` FOREIGN KEY (`date`) REFERENCES `Shifts` (`date`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `SignUp_time_fk` FOREIGN KEY (`time`) REFERENCES `Shifts` (`time`) ON DELETE CASCADE ON UPDATE CASCADE,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
