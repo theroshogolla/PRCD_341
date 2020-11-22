@@ -286,7 +286,7 @@ CREATE TABLE `ManagesPeople` (
 -- Dumping data for table `ManagesPeople`
 --
 
-LOCK TABLES `ManagesItems` WRITE;
+LOCK TABLES `ManagesPeople` WRITE;
 /*!40000 ALTER TABLE `ManagesPeople` DISABLE KEYS */;
 INSERT INTO `ManagesPeople` VALUES (1,'mmm345'),
 /*!40000 ALTER TABLE `ManagesPeople` ENABLE KEYS */;
