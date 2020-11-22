@@ -212,10 +212,10 @@ CREATE TABLE `ManagesItems` (
   `role_ID` int(10) NOT NULL,
   `type` char(100) NOT NULL,
   `vendor` char(100) NOT NULL,
-  PRIMARY KEY (`roleId`,`type`,`vendor`),
+  PRIMARY KEY (`role_ID`,`type`,`vendor`),
   KEY `ManagesItems_tpye_fk` (`type`),
   KEY `ManagesItems_vendor_fk` (`vendor`),
-  CONSTRAINT `ManagesItems_roleID_fk` FOREIGN KEY (`roleID`) REFERENCES `Steering_Committee` (`roleID`),
+  CONSTRAINT `ManagesItems_roleID_fk` FOREIGN KEY (`role_ID`) REFERENCES `Steering_Committee` (`role_ID`),
   CONSTRAINT `ManagesItems_tpye_fk` FOREIGN KEY (`type`) REFERENCES `Inventory` (`type`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ManagesItems_vendor_fk` FOREIGN KEY (`vendor`) REFERENCES `Inventory` (`vendor`) ON DELETE CASCADE ON UPDATE CASCADE,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -275,9 +275,9 @@ DROP TABLE IF EXISTS `ManagesPeople`;
 CREATE TABLE `ManagesPeople` (
   `role_ID` int(10) NOT NULL,
   `case_ID` char(7) NOT NULL,
-  PRIMARY KEY (`roleId`,`case_ID`),
+  PRIMARY KEY (`role_ID`,`case_ID`),
   KEY `ManagesPeople_case_ID_fk` (`case_ID`),
-  CONSTRAINT `ManagesPeople_roleID_fk` FOREIGN KEY (`roleID`) REFERENCES `Steering_Committee` (`roleID`),
+  CONSTRAINT `ManagesPeople_roleID_fk` FOREIGN KEY (`role_ID`) REFERENCES `Steering_Committee` (`role_ID`),
   CONSTRAINT `ManagesPeople_case_ID_fk` FOREIGN KEY (`case_ID`) REFERENCES `Volunteers` (`case_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
