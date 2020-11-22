@@ -304,7 +304,7 @@ DROP TABLE IF EXISTS `UsedIn`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `UsedIn` (
   `recipe_ID` int NOT NULL,
-  `category` char(100) NULL,
+  `category` char(100) NOT NULL,
   `name` char(100) NOT NULL,
   PRIMARY KEY (`recipe_ID`,`category`,`name`),
   KEY `UsedIn_category_fk` (`category`),
@@ -339,7 +339,7 @@ DROP TABLE IF EXISTS `Advise`;
 CREATE TABLE `Advise` (
   `role_ID` int(10) NOT NULL,
   `case_ID` char(7) NOT NULL,
-  PRIMARY KEY (`roleId`,`case_ID`),
+  PRIMARY KEY (`role_ID`,`case_ID`),
   KEY `Advise_case_ID_fk` (`case_ID`),
   CONSTRAINT `Advise_roleID_fk` FOREIGN KEY (`role_ID`) REFERENCES `Steering_Committee` (`role_ID`),
   CONSTRAINT `Advise_case_ID_fk` FOREIGN KEY (`case_ID`) REFERENCES `Advisors` (`case_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
