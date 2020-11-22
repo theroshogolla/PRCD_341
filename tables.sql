@@ -170,7 +170,7 @@ CREATE TABLE `Food` (
 
 LOCK TABLES `Food` WRITE;
 /*!40000 ALTER TABLE `Food` DISABLE KEYS */;
-INSERT INTO `Food` VALUES ('dairy','Daves', 10, NULL )
+INSERT INTO `Food` VALUES (Dairy,Vegetarian,3,BonApp),(Dairy,Vegetarian,2,FRN), (Pasta,Vegan,14,CFB), (Pasta,Gluten Free,14,CFB), (Rice,Dairy Free,9,CoC), (Rice,Vegan,9,CoC), (Beans,Vegan,6,FRN), (Snack Bars,Vegetarian,12,OMA), (Seafood,Dairy Free,7,GivingTuesday), (Poultry,Dairy Free,8,GivingTuesday), (Cereal,Vegetarian,4,OMA), (Spices,Vegetarian,6,CoC), (Cereal,Dairy Free,4,OMA), (Spices,Dairy Free,6,CoC), (Beans,Dairy Free,6,FRN), (Pasta,Dairy Free,14,CFB);
 /*!40000 ALTER TABLE ` Food` ENABLE KEYS */;
 UNLOCK TABLES;
 
