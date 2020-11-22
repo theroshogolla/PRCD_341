@@ -241,13 +241,13 @@ DROP TABLE IF EXISTS `ManagesFood`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ManagesFood` (
-  `roleID` int(10) NOT NULL,
+  `role_ID` int(10) NOT NULL,
   `category` char(100) NOT NULL,
   `vendor` char(100) NOT NULL,
-  PRIMARY KEY (`roleId`,`category`,`vendor`),
+  PRIMARY KEY (`role_ID`,`category`,`vendor`),
   KEY `ManagesItems_category_fk` (`type`),
   KEY `ManagesItems_vendor_fk` (`vendor`),
-  CONSTRAINT `ManagesFood_roleID_fk` FOREIGN KEY (`roleID`) REFERENCES `Steering_Committee` (`roleID`),
+  CONSTRAINT `ManagesFood_roleID_fk` FOREIGN KEY (`role_ID`) REFERENCES `Steering_Committee` (`role_ID`),
   CONSTRAINT `ManagesFood_category_fk` FOREIGN KEY (`category`) REFERENCES `Food` (`category`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ManagesFood_vendor_fk` FOREIGN KEY (`vendor`) REFERENCES `Food` (`vendor`) ON DELETE CASCADE ON UPDATE CASCADE,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
