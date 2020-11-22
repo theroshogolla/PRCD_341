@@ -341,7 +341,7 @@ CREATE TABLE `Advise` (
   `case_ID` char(7) NOT NULL,
   PRIMARY KEY (`roleId`,`case_ID`),
   KEY `Advise_case_ID_fk` (`case_ID`),
-  CONSTRAINT `Advise_roleID_fk` FOREIGN KEY (`roleID`) REFERENCES `Steering_Committee` (`roleID`),
+  CONSTRAINT `Advise_roleID_fk` FOREIGN KEY (`role_ID`) REFERENCES `Steering_Committee` (`role_ID`),
   CONSTRAINT `Advise_case_ID_fk` FOREIGN KEY (`case_ID`) REFERENCES `Advisors` (`case_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -350,9 +350,9 @@ CREATE TABLE `Advise` (
 -- Dumping data for table `ManagesPeople`
 --
 
-LOCK TABLES `Advice` WRITE;
+LOCK TABLES `Advise` WRITE;
 /*!40000 ALTER TABLE `ManagesPeople` DISABLE KEYS */;
-INSERT INTO `Advice` VALUES (1,'axw123'),
+INSERT INTO `Advise` VALUES (1,'axw123'),
 /*!40000 ALTER TABLE `ManagesPeople` ENABLE KEYS */;
 UNLOCK TABLES;
 
