@@ -119,7 +119,7 @@ CREATE TABLE `Advisors` (
 
 LOCK TABLES `Advisors` WRITE;
 /*!40000 ALTER TABLE `Advisors` DISABLE KEYS */;
-INSERT INTO `Advisors` VALUES (axw123,'Adele Williamson', 'csds@gmail.com', NULL, NULL )
+INSERT INTO `Advisors` VALUES (sss1919,Shannon Shea,sss1919@case.edu,Student Activites and Leadership,Risk and Safety Managment),(ttt2020,Tiffany Tims,ttt2020@case.edu,Division of Student Affairs,Funding),(uuu2121,Ulises Umber,uuu2121@case.edu,Office of Real Estate,Real Estate),(vvv2222,Vivian Vox,vvv2222@case.edu,Sustainailtiy Office,Sustainabiltiy ),(www2323,Wiley Willamson,www2323@case.edu,Civic Service Office,Volunteers Recruitment),(xxx2424,Xander Xage,xxx2424@case.edu,University Procurement Office,Funding),(yyy2525,Yohann Yogi,yyy2525@case.edu,The Daily,Marketing) ,(zzz2626,Zehra Zalika,zzz2626@case.edu,Office of Mulutuclatral Affairs,Community Engagment);
 /*!40000 ALTER TABLE ` Advisors` ENABLE KEYS */;
 UNLOCK TABLES;
 
