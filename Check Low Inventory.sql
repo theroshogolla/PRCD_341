@@ -2,4 +2,4 @@
 
 SELECT type, vendor 
 FROM Inventory
-WHERE Inventory.qty < 5
+WHERE qty < 5
