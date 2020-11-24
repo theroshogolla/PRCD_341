@@ -1,3 +1,3 @@
 SELECT vendor, SUM(qty)
-FROM Items
+FROM Food
 GROUP BY vendor
