@@ -26,7 +26,7 @@ CREATE TABLE `Steering_Committee` (
   `role_ID` int(10) NOT NULL,
   `role` char(50) DEFAULT NULL,
   `name` char(50) DEFAULT NULL,
-  `cell` int(10) DEFAULT NULL,
+  `cell` bigint(10) DEFAULT NULL,
   `email` char(50) DEFAULT NULL,
   `address` char(100) DEFAULT NULL,
   PRIMARY KEY (`role_ID`)
@@ -82,7 +82,7 @@ DROP TABLE IF EXISTS `Volunteers`;
 CREATE TABLE `Volunteers` (
   `case_ID` char(7) NOT NULL,
   `name` char(50) NOT NULL,
-  `cell` int(10) DEFAULT NULL,
+  `cell` bigint(10) DEFAULT NULL,
   `email` char(50) DEFAULT NULL,
   `type` char(4) NOT NULL,
   `hours` int DEFAULT NULL,
@@ -142,7 +142,7 @@ CREATE TABLE `Inventory` (
   `type` char(100) NOT NULL,
   `qty` int DEFAULT NULL,
   `vendor` char(100) NOT NULL,
-  PRIMARY KEY (`type`, 'vendor')
+  PRIMARY KEY (`type`, `vendor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -167,7 +167,7 @@ DROP TABLE IF EXISTS `Food`;
 /*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `Food` (
   `category` char(100) NOT NULL,
-  `accomodations` char(100) DEFAULT NULL,
+  `accommodations` char(100) DEFAULT NULL,
   `qty` int DEFAULT NULL,
   `vendor` char(100) NOT NULL,
   PRIMARY KEY (`category`, `vendor`)
@@ -225,11 +225,10 @@ CREATE TABLE `ManagesItems` (
   `type` char(100) NOT NULL,
   `vendor` char(100) NOT NULL,
   PRIMARY KEY (`role_ID`,`type`,`vendor`),
-  KEY `ManagesItems_tpye_fk` (`type`),
+  KEY `ManagesItems_type_fk` (`type`),
   KEY `ManagesItems_vendor_fk` (`vendor`),
   CONSTRAINT `ManagesItems_roleID_fk` FOREIGN KEY (`role_ID`) REFERENCES `Steering_Committee` (`role_ID`),
-  CONSTRAINT `ManagesItems_tpye_fk` FOREIGN KEY (`type`) REFERENCES `Inventory` (`type`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `ManagesItems_vendor_fk` FOREIGN KEY (`vendor`) REFERENCES `Inventory` (`vendor`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `ManagesItems_inventory_fk` FOREIGN KEY (`type`, `vendor`) REFERENCES `Inventory` (`type`, `vendor`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -392,6 +391,6 @@ CREATE TABLE `SignUp` (
 
 LOCK TABLES `SignUp` WRITE;
 /*!40000 ALTER TABLE `SignUp` DISABLE KEYS */;
-INSERT INTO `SignUp` VALUES ("mmm1313","2020-01-16","13:00");
+INSERT INTO `SignUp` VALUES ("mmm1313","2020-08-16","15:00");
 /*!40000 ALTER TABLE `SignUp` ENABLE KEYS */;
 UNLOCK TABLES;

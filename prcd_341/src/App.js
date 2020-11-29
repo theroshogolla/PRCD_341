@@ -1,16 +1,19 @@
 import React, {useState} from 'react'
-import {TextField, Button} from '@material-ui/core'
+import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles'
 import {makeStyles} from '@material-ui/styles'
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
-  Link,
   Redirect
 } from "react-router-dom"
 
 import SearchForm from './components/SearchForm'
+import DisplayResults from './components/DisplayResults'
 import AdminLogin from './components/AdminLogin'
+import LoginLink from './components/LoginLink'
+import VolunteerShifts from './components/VolunteerShifts'
+import history from './services/history'
 
 const useStyles = makeStyles({
   root: {
@@ -20,28 +23,59 @@ const useStyles = makeStyles({
   },
 })
 
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+  overrides: {
+    MuiFormLabel: {
+      root: {
+        "&$focused": {
+          color: 'white',
+        }
+      },
+
+      focused: {}
+    }
+  }
+})
+
 const App = () => {
   const classes = useStyles()
+  const [searchResults, setSearchResults] = useState({
+    inventory: [],
+    food: [],
+    recipes: []
+  })
 
   return (
-    <Router>
-      <div className={classes.root}>
-        <h1>CWRU Physical Resource Center Database</h1>
-
+    <Router history={history}>
+      <ThemeProvider theme={theme}>
+      <div style={{textAlign: 'center'}}>
+        <h1>Welcome to the CWRU Physical Resource Center Database!</h1>
       </div>
 
       <Switch>
         <Route path='/search'>
-          <SearchForm />
+          <div className={classes.root}>
+            <SearchForm resultHandler={setSearchResults}/>
+            <VolunteerShifts />
+            <LoginLink />
+          </div>
         </Route>
         <Route path='/login'>
           <AdminLogin />
+        </Route>
+        <Route path='/results'>
+          <SearchForm resultHandler={setSearchResults}/>
+          <DisplayResults results={searchResults} />
         </Route>
         <Route path= '/'>
           <Redirect to='/search' />
         </Route>
 
       </Switch>
+      </ThemeProvider>
     </Router>
     );
 }
