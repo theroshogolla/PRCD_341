@@ -51,9 +51,10 @@ const SearchForm = () => {
   const [searchValue, setSearchValue] = useState('')
   return (
     <div className={classes.userSearch}>
+      <h2>Welcome to the PRC Database!</h2>
       <p> Search our inventory of food, clothing, and many other items:</p>
       <form className={classes.userSearch} noValidate autoComplete='off'>
-        <TextField className={classes.userSearchBar} onChange = {(event) => setSearchValue(event.target.value)}
+        <TextField className={classes.userSearchBar} value={searchValue} onChange={(event) => setSearchValue(event.target.value)}
         label= 'What are you looking for today?'
         type='search' variant='outlined'/>
         <Button className={classes.searchButton} variant="contained" color="primary" type="submit">Search</Button>

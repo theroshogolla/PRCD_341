@@ -10,6 +10,7 @@ import {
 } from "react-router-dom"
 
 import SearchForm from './components/SearchForm'
+import AdminLogin from './components/AdminLogin'
 
 const useStyles = makeStyles({
   root: {
@@ -25,7 +26,7 @@ const App = () => {
   return (
     <Router>
       <div className={classes.root}>
-        <h1> Welcome to the PRC Database! </h1>
+        <h1>CWRU Physical Resource Center Database</h1>
 
       </div>
 
@@ -34,7 +35,7 @@ const App = () => {
           <SearchForm />
         </Route>
         <Route path='/login'>
-          <p> Login successful! </p>
+          <AdminLogin />
         </Route>
         <Route path= '/'>
           <Redirect to='/search' />
