@@ -13,6 +13,7 @@ import DisplayResults from './components/DisplayResults'
 import AdminLogin from './components/AdminLogin'
 import LoginLink from './components/LoginLink'
 import VolunteerShifts from './components/VolunteerShifts'
+import VolunteerForm from './components/VolunteerForm'
 import history from './services/history'
 
 const useStyles = makeStyles({
@@ -34,10 +35,9 @@ const theme = createMuiTheme({
           color: 'white',
         }
       },
-
       focused: {}
-    }
-  }
+    },
+  },
 })
 
 const App = () => {
@@ -47,6 +47,8 @@ const App = () => {
     food: [],
     recipes: []
   })
+  const [shifts, setShifts] = useState([])
+
 
   return (
     <Router history={history}>
@@ -59,8 +61,7 @@ const App = () => {
         <Route path='/search'>
           <div className={classes.root}>
             <SearchForm resultHandler={setSearchResults}/>
-            <VolunteerShifts />
-            <LoginLink />
+            <VolunteerShifts resultHandler={setShifts}/>
           </div>
         </Route>
         <Route path='/login'>
@@ -69,6 +70,9 @@ const App = () => {
         <Route path='/results'>
           <SearchForm resultHandler={setSearchResults}/>
           <DisplayResults results={searchResults} />
+        </Route>
+        <Route path='/signup'>
+          <VolunteerForm shifts={shifts} />
         </Route>
         <Route path= '/'>
           <Redirect to='/search' />

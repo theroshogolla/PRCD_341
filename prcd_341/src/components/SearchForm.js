@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {TextField, Button} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
-import {Link} from 'react-router-dom'
 
 import {searchQuery} from '../services/serverApi'
 import history from '../services/history'

@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import {TextField, Button} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
+
 import {getShifts} from '../services/serverApi'
+import history from '../services/history'
 
 const useStyles = makeStyles({
   root: {
@@ -12,16 +14,16 @@ const useStyles = makeStyles({
   },
 })
 
-const VolunteerShifts = () => {
+const VolunteerShifts = ({resultHandler}) => {
   const classes = useStyles()
   const [shiftDate, setShiftDate] = useState('')
-  const [shifts, setShifts] = useState([])
 
   const requestShifts = (e) => {
     e.preventDefault()
     getShifts(shiftDate)
     .then(response => {
-      setShifts([response.data])
+      resultHandler(response.data)
+      history.push('/signup')
     })
   }
 

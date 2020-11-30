@@ -14,8 +14,25 @@ const searchQuery = (query) => {
 
 const getShifts = (date) => {
   return axios
-         .get(`${baseUrl}/shifts/${date}`)
+         .get(`${baseUrl}/shifts/`, {
+           params: {
+             date
+           }
+         })
          .then(response => response)
 }
 
-export {getShifts, searchQuery}
+const sendSignUp = (caseID, name, cell, email, type, shiftTime) => {
+  return axios
+         .post(`${baseUrl}/signup/`, {
+         caseID,
+         name,
+         cell,
+         email,
+         type,
+         shiftTime
+        })
+         .then(response => response)
+}
+
+export {getShifts, searchQuery, sendSignUp}
