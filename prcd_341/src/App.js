@@ -10,8 +10,6 @@ import {
 
 import SearchForm from './components/SearchForm'
 import DisplayResults from './components/DisplayResults'
-import AdminLogin from './components/AdminLogin'
-import LoginLink from './components/LoginLink'
 import VolunteerShifts from './components/VolunteerShifts'
 import VolunteerForm from './components/VolunteerForm'
 import history from './services/history'
@@ -64,11 +62,12 @@ const App = () => {
             <VolunteerShifts resultHandler={setShifts}/>
           </div>
         </Route>
-        <Route path='/login'>
-          <AdminLogin />
-        </Route>
         <Route path='/results'>
           <SearchForm resultHandler={setSearchResults}/>
+          <p style={{textAlign: 'center'}}>See something you like?
+            <a href='https://community.case.edu/prc/home/' target="_blank" rel="noopener noreferrer" style={{color: 'white'}}> Book a time slot on CampusGroups </a>
+             to come pick it up!
+          </p>
           <DisplayResults results={searchResults} />
         </Route>
         <Route path='/signup'>
