@@ -24,14 +24,18 @@ const DisplayResults = ({results}) => {
 
   return(
     <div className={classes.root}>
-      <h2>Inventory</h2>
+      {results.inventory.length === 0 ? null :
+        <h2>Inventory</h2>
+      }
       <ol>
       {results.inventory.map(
         ({type, qty, vendor}) => <li key={`${type}${vendor}`}><Result name={type} quantity={qty} vendor={vendor} /></li>
       )}
       </ol>
       <br/>
-      <h2>Food</h2>
+      {results.food.length === 0 ? null :
+        <h2>Food</h2>
+      }
       <ol>
       {results.food.map(
         ({category, vendor, qty, accommodations}) => {
@@ -43,13 +47,15 @@ const DisplayResults = ({results}) => {
           )
       })}
       </ol>
-      <h2>Recipes</h2>
+      {results.recipes.length === 0 ? null :
+        <h2>Recipes</h2>
+      }
       <ol>
       {results.recipes.map(({name, webLink}) => {
         return(
           <li key={`${webLink}`}>
             <h4>{name}</h4>
-            <p><strong>Link: </strong><a href={webLink}>{webLink}</a></p>
+            <p><strong>Link: </strong><a href={webLink} style={{color: 'white'}}>{webLink}</a></p>
           </li>
         )
       })}
